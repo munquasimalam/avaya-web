@@ -1,20 +1,90 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+    <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" class="form-inline">
+  -->
+    <form  class="form-inline">
+    <div class="table-responsive">
+        <table class="table">
+      <thead>
+          <tr>
+              <th >Check Box</th>
+              <th>Op No</th>
+              <th>Name</th>
+              <th >Gender</th>
+              <th>Date Of Birth</th>
+              <th >Civil</th>
+            </tr>
+      </thead>
+        <tr *ngFor="let patient of patientList">
+         <input type="checkbox" name="checkbox"  (change)="updateChecked(patient, $event)" /> 
+               <td>{{patient.op_number}}</td>
+            <td>{{patient.patient_name}}</td>
+            <td>{{patient.sex}}</td>
+            <td>{{patient.date_of_birth}}</td>
+            <td>{{patient.emirates_id}}</td>
+          
+          </tr>
+      </table>
+    </div>
+
+    
+    <div class="dropdown" class="form-group mx-sm-3 mb-2">
+        <label for="office">Office
+          <select [ngModel]="selectedOffice" (ngModelChange)="officeOnChange($event)" name="office">
+              <option [value]="office.office_Id" *ngFor="let office of officeList">{{office.office_Name}}</option>
+          </select>
+          </label>
+         </div>
+      
+
+   
+    <div class="dropdown" class="form-group mx-sm-3 mb-2">
+        <label for="department">Department
+          <select [ngModel]="selectedDepartment" (ngModelChange)="departmentOnChange($event)" name="department">
+              <option [value]="department.department_id" *ngFor="let department of departmentList">{{department.department_name}}</option>
+          </select>
+          </label>
+         </div>
+      
+
+      
+         <div class="dropdown" class="form-group mx-sm-3 mb-2">
+            <label for="doctor">Doctor
+              <select [ngModel]="" (ngModelChange)="doctotOnChange($event)" name="doctor">
+                  <option [value]="doctor.doctors_id" *ngFor="let doctor of doctortList">{{doctor.doctors_name}}</option>
+              </select>
+              </label>
+             </div>
+                    <div class="form-group" class="form-group mx-sm-3 mb-2">
+                      <div class="input-group">
+                          <label for="doctor">Date
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (ngModelChange)="dateOnChange($event)" name="date">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                          </button>
+                        </div>
+                        </label>
+                      </div>
+                    </div>
+                   <div class="dropdown" class="form-group mx-sm-3 mb-2">
+                    <label for="date">Time Slot
+                      <select [ngModel]="" (ngModelChange)="timeSlotOnChange($event)" name="slot">
+                          <option [value]="timeSlot.slot_day" *ngFor="let timeSlot of timeSlotList">{{timeSlot.slots}}</option>
+                        </select>
+                      </label>
+                     </div>
+                     <div class="dropdown" class="form-group mx-sm-3 mb-2">
+                        <label for="date">Slot
+                          <select [ngModel]="" (ngModelChange)="SlotOnChange($event)" name="slot">
+                              <option [value]="noOfSlot" *ngFor="let noOfSlot of noOfSlotList">{{noOfSlot}}</option>
+                            </select>
+                          </label>
+                         </div>
+                     <div class="form-group mx-sm-3 mb-2">
+                      <button type="button" class="btn btn-primary" (click)="savePatientDetail()">
+                        Book
+                      </button>
+                    </div>
+                
+                    </form>
