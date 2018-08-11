@@ -61,9 +61,10 @@ getDoctorListByDepartmentId(id:any) {
 }
 
 getSlotListByDateAndDoctorId(date:any,doctorId:any) {
-   date='2017-07-31';
-  
-   doctorId=42;
+   //date='2017-07-31';
+  console.log("date:"+date);
+  // doctorId=43;
+  console.log("doctorId:"+doctorId);
    let promise = new Promise((resolve, reject) => {
     let apiURL = API_URL + '/slotlist?date='+date+'&id='+ doctorId ;
     this.http.get(apiURL).subscribe((res)=>{
@@ -76,10 +77,8 @@ getSlotListByDateAndDoctorId(date:any,doctorId:any) {
 }
 
 savePatientDetail(patientDetail:any): Promise<boolean>  {
- // date='2017-07-31';
+  console.log(patientDetail);
  
- // doctorId=42;
-
  let headers = new Headers({ 'Content-Type': 'application/json' });
  let options = new RequestOptions({ headers: headers });
  let promise = new Promise<boolean>((resolve, reject) => {

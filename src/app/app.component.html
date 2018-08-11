@@ -70,7 +70,7 @@
                    <div class="dropdown" class="form-group mx-sm-3 mb-2">
                     <label for="date">Time Slot
                       <select [ngModel]="" (ngModelChange)="timeSlotOnChange($event)" name="slot">
-                          <option [value]="timeSlot.slot_day" *ngFor="let timeSlot of timeSlotList">{{timeSlot.slots}}</option>
+                          <option [value]="timeSlot.slots" *ngFor="let timeSlot of timeSlotList">{{timeSlot.slots}}</option>
                         </select>
                       </label>
                      </div>

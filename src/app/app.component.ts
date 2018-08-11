@@ -104,9 +104,13 @@ export class AppComponent implements OnInit {
     let day:string='';
     if(date.month<10){
       month='0'+date.month;
+    } else {
+      month=date.month; 
     } 
     if(date.day<10){
       day='0'+date.day; 
+    } else {
+      day=date.day; 
     }
     date=date.year+'-'+month+'-'+day;
     return date;
@@ -137,10 +141,10 @@ export class AppComponent implements OnInit {
     
   }
 
-  save(model: any, isValid: boolean) {
-    this.submitted = true;
-    console.log(model, isValid);
-}
+//   save(model: any, isValid: boolean) {
+//     this.submitted = true;
+//     console.log(model, isValid);
+// }
 
 savePatientDetail(){
   console.log("mmm");
@@ -157,7 +161,7 @@ let patientDetail={
 'selectedDoctorId':this.selectedDoctorId,
 'selectedDate':this.selectedDate,
 'selectedTimeSlot':this.selectedTimeSlot,
-'this.selectedNoOfSlot':this.selectedNoOfSlot
+'selectedNoOfSlot':this.selectedNoOfSlot
   };
   console.log(patientDetail);
   this.appointmentService.savePatientDetail(patientDetail)
