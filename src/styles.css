@@ -38,12 +38,16 @@ body {
   }
   
   table {
+    border: 2px solid green;
     width: 100%;
   }
   
-  table, th, td {
-    border: 1px solid black;
+  th, td {
+    border: 1px solid green;
     border-collapse: collapse;
+    padding: 0.5rem;
+    text-align: left;
+
   }
   
   .table-row-component td {
